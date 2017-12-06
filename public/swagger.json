@@ -1,0 +1,288 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Simple API",
+    "description": "A simple API to learn how to write OpenAPI Specification"
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "simple.api",
+  "basePath": "/openapi101",
+  "tags": [
+    {
+      "name": "用户管理",
+      "description": "Everything about your Pets"
+    },
+    {
+      "name": "文章管理",
+      "description": "Access to Petstore orders"
+    }
+  ],
+  "paths": {
+    "/api/user/regiser": {
+      "post": {
+        "tags": [
+          "用户管理"
+        ],
+        "summary": "注册",
+        "description": "注册用户",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "required": [
+                "username",
+                "password"
+              ],
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of Person"
+          }
+        }
+      }
+    },
+    "/api/logout": {
+      "get": {
+        "tags": [
+          "用户管理"
+        ],
+        "summary": "注销用户",
+        "description": "注销用户",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of Person"
+          }
+        }
+      }
+    },
+    "/api/login": {
+      "post": {
+        "tags": [
+          "用户管理"
+        ],
+        "summary": "登录",
+        "description": "登录",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "required": [
+                "username",
+                "password"
+              ],
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of Person"
+          }
+        }
+      }
+    },
+    "/api/admin/article": {
+      "post": {
+        "tags": [
+          "文章管理"
+        ],
+        "summary": "发布文章",
+        "description": "发布文章",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "required": [
+                "title",
+                "describe"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "describe": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of Person"
+          }
+        }
+      }
+    },
+    "/api/admin/article/list": {
+      "get": {
+        "tags": [
+          "文章管理"
+        ],
+        "summary": "获取文章列表",
+        "description": "获取文章列表",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of Person"
+          }
+        }
+      }
+    },
+    "/api/admin/article/{id}": {
+      "get": {
+        "tags": [
+          "文章管理"
+        ],
+        "summary": "发布文章",
+        "description": "发布文章",
+        "operationId": "/api/admin/article/{id}get",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "文章id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of Person"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "文章管理"
+        ],
+        "summary": "删除文章",
+        "description": "删除文章",
+        "operationId": "/api/admin/article/{id}delete",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "文章id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of Person"
+          }
+        }
+      }
+    },
+    "/api/admin/article/{id}/{status}": {
+      "put": {
+        "tags": [
+          "文章管理"
+        ],
+        "summary": "改变文章状态",
+        "description": "改变文章状态",
+        "operationId": "/api/admin/article/{id}/{status}",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "文章id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "path",
+            "description": "文章的状态 publish: 发布 | unpublish：未发布",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of Person"
+          }
+        }
+      }
+    }
+  }
+}
